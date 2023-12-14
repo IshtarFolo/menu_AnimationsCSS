@@ -1,0 +1,186 @@
+@font-face {
+    font-family: "fFinish";
+    src: url("../polices/fFinish.ttf");
+}
+
+/*Remise a zero*/
+*, 
+body,
+:before, 
+:after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Le bouton et son style*/
+header {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    background-image: url("../images/bras-tattoo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    height: 50vh;
+    margin-top: 5rem;
+    display: flex;
+}
+
+ul {
+    height: 50em;
+    width: 50em;
+    display: flex;
+    flex-direction: column;
+}
+
+li {
+    font-family: fFinish;
+}
+
+ .acceuil {
+    width: 10rem;
+    height: 2rem;
+    padding-top: 0.3em;
+    border: 5px solid rgb(0, 0, 0, 50%);
+    background-color: rgb(180, 135, 29);
+    grid-row: 1;
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: border 1s ;
+}
+
+.nouvelles {
+    width: 10rem;
+    height: 2rem;
+    margin-left: 10rem;
+    padding-top: 0.3em;
+    border: 5px solid rgb(0, 0, 0, 50%);
+    background-color: rgb(180, 135, 29);
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: border 1s ;
+}
+
+.contacts {
+    width: 10rem;
+    height: 2rem;
+    margin-left: 20rem;
+    padding-top: 0.3em;
+    border: 5px solid rgb(0, 0, 0, 50%);
+    background-color: rgb(180, 135, 29);
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: border 1s ;
+}
+
+.aPropos {
+    width: 10rem;
+    height: 2rem;
+    margin-left: 30rem;
+    padding-top: 0.3em;
+    border: 5px solid rgb(0, 0, 0, 50%);
+    background-color: rgb(180, 135, 29);
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: border 1s ;
+}
+
+/*L'interieur du bouton*/
+.vide {
+    width: 10rem;
+    text-align: center;
+    pointer-events: none;
+    transform: translate(-4px, 0px);
+    user-select: none;
+    list-style-type: none;
+
+    transition: transform 1s;
+}
+
+/*Pseudo-element entre les deux div dans le bouton*/
+.vide::after {
+    content: "";
+    width: 55rem;
+    height: 10rem;
+    top: 112%;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    box-shadow:5px 1px;
+    z-index: 0;
+    transform: translate(-180px, 0px);
+
+    transition: transform 1s;
+}
+
+/*L'intérieur du bouton avec background gris*/
+.remplissage {
+    width: 10rem;
+    height: 2rem;
+    padding-top: 0.4rem;
+    transform: translate(-4px, 10px);
+    color: white;
+    background-color: rgb(131, 131, 131);
+    text-align: center;
+    user-select: none;
+    list-style-type: none;
+    
+    transition: transform 1s;
+}
+
+/*change aspect pour faire apparaître les divs dessous (remplissage)*/
+div:hover .remplissage{
+    transform: translate(-4px, -22px);
+}
+
+/*Le div .vide se deplace vers le haut*/
+div:hover .vide {
+    transform: translate(-4px, -20px);
+}
+
+/*Le contour du bouton change de couleur*/
+div:hover {
+    border: 5px solid rgb(115, 115, 115);
+}
+
+/*On deplace le pseudo-element entre les deux li*/
+div:hover .vide::after {
+    transform: translate(-180px, -25px);
+}
+
+/*lorsque le bouton est clique et que la classe clique est ajoutee au div*/
+div:not(:active) .clique {
+    animation: animEllipse 0.5s ease-out forwards;
+}
+
+/*------L'Animation-------*/
+ @keyframes animEllipse {
+        from {
+            clip-path: circle(70.7% at 50% 50%);
+        }
+
+        to {
+            clip-path: circle(0% at 50% 25%);
+        }
+} 
